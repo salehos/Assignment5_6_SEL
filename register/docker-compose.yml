@@ -1,0 +1,9 @@
+version: "2.1"
+services:
+    register:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        command: python -u reg_flask.py
+        env_file: .env
+        restart: always
