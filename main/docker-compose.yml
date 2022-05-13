@@ -4,6 +4,6 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-        command: python -u login_flask.py
+        command: python -u main_flask.py
         env_file: .env
         restart: always

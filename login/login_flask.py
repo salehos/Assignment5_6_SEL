@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from login_and_auth_works import check_user_credential, encode_auth_token
+from login_works import check_user_credential, encode_auth_token
 
 app = Flask(__name__)
 
