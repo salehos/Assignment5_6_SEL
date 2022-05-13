@@ -46,7 +46,7 @@ def c_t():
         if request.method == "POST":
             for m in request.form:
                 travel_data.update({m : request.form[m]})
-            travel = create_travel(travel_data['username'], travel_data['bike_id'])
+            travel = create_travel(travel_data['username'], travel_data['bike_id'], travel_data['x'], travel_data['y'])
             if travel == None:
                 return travel
             else:
