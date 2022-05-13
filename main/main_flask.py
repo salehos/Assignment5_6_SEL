@@ -13,10 +13,12 @@ def main(route, username):
         request_method = request.method
         host = "127.0.0.1"
         port = 8000
+        new_headers = {key: value for (key, value) in request.headers if key != 'Host'}
+        new_headers["username"] = username
         response = requests.request(method=request_method,
                                     url=f"{host}:{port}/{route}",
                                     params=request.args,
-                                    headers={key: value for (key, value) in request.headers if key != 'Host'},
+                                    headers=new_headers,
                                     data=request.get_data(),
                                     cookies=request.cookies,
                                     allow_redirects=False,
