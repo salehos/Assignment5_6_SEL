@@ -6,9 +6,9 @@ from main_works import auth_decorator
 app = Flask(__name__)
 
 
-@app.route('/main/<route>')
+@app.route('/main/<route>', methods=['POST', "GET"])
 @auth_decorator
-def main(route):
+def main(route, username):
     try:
         request_method = request.method
         host = "127.0.0.1"

@@ -17,6 +17,7 @@ def check_user_credential(username, password):
         return {"res": "Unable to login with provided credential"}
     return None
 
+
 def encode_auth_token(username):
     """
     Generate auth token
@@ -28,11 +29,15 @@ def encode_auth_token(username):
             'username': username,
         }
         return jwt.encode(
-            payload,
-            str(os.environ.get('JWT_SECRET_KEY')),
-            alg='HS256'
+            payload=payload,
+            key=str(os.environ.get('JWT_SECRET_KEY')),
+            algorithm='HS256'
         )
     except Exception as e:
         return e
 
 
+if __name__ == '__main__':
+    # get a test token
+    token = encode_auth_token("test_user")
+    print(token)

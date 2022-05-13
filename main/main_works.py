@@ -24,7 +24,7 @@ def auth_decorator(func):
             jwt_token = authorization.split()[1]
             username = decode_auth_token(jwt_token)
             return func(*args, **kwargs, username=username)
-        except:
-            return {"res": "Token has expired or is invalid, please login again"}
+        except Exception as e:
+            return {"res": "Token has expired or is invalid, please login again", "error": str(e)}
 
     return wrapper
