@@ -1,9 +1,9 @@
 version: "2.1"
 services:
-    login_flask:
+    travel_flask:
         build:
             context: .
             dockerfile: Dockerfile
-        command: python -u login_flask.py
+        command: python -u flsk.py
         env_file: .env
         restart: always
