@@ -35,7 +35,7 @@ def get_travel_details(travel_id):
         return {'res' : 'there is no travel with this travel id'}
     return travel
 
-def create_travel(username, bike_id):
+def create_travel(username, bike_id, x, y):
     is_ongoing = travel_col.find({"rider_username": username, "status": "Ongoing"})
     bike_json = bike_col.find_one({"bike_id": bike_id})
     user_json = user_col.find_one({"username": username})
@@ -45,7 +45,7 @@ def create_travel(username, bike_id):
         return {'res' : 'your username is WRONG'}
     if bike_json['status'] == 'busy':
         return {'res' : 'this bike is busy'}
-    if haversine(bike_json['x'], bike_json['y'], user_json['x'], user_json['y']) > 100:
+    if haversine(bike_json['x'], bike_json['y'], x, y) > 100:
         return {'res' : 'bike is out of range'}
     travel_id = uuid1()
     travel_data = {
