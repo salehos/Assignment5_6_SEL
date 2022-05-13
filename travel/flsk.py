@@ -1,5 +1,5 @@
 import os
-from travel_stuff import get_travel, get_all_travels, create_travel, end_travel
+from travel_stuff import get_travel_details, get_all_travels, create_travel, end_travel
 from flask import Flask, request
 app = Flask(__name__)
 
@@ -10,7 +10,7 @@ def get_travel():
         if request.method == "POST":
             for m in request.form:
                 travel_data.update({m : request.form[m]})
-            travel = get_travel(travel_data['travel_id'])
+            travel = get_travel_details(travel_data['travel_id'])
             if travel != None:
                 return travel
             else:

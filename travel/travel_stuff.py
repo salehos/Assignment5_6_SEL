@@ -29,7 +29,7 @@ def haversine(lon1, lat1, lon2, lat2):
     r = 6371 # Radius of earth in kilometers. Use 3956 for miles. Determines return value units.
     return c * r
 
-def get_travel(travel_id):
+def get_travel_details(travel_id):
     travel = travel_col.find_one({"travel_id": travel_id})
     if travel == None:
         return {'res' : 'there is no travel with this travel id'}
