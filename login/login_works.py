@@ -15,7 +15,7 @@ def check_user_credential(username, password):
     username_check = user_col.find_one({"username": username, "password": password})
     if username_check is None:
         return {"res": "Unable to login with provided credential"}
-
+    return None
 
 def encode_auth_token(username):
     """

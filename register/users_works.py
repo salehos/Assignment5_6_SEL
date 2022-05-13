@@ -22,7 +22,10 @@ def create_user(username, gmail, password):
         res = user_col.insert_one({
             "username" : username,
             "gmail": gmail,
-            "password": password
+            "password": password,
+            "x": 0,
+            "y": 0,
+            "total_score": 0
         })
         return {'res': 'user created'}
     except Exception as e:
