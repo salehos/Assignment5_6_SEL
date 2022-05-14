@@ -1,4 +1,4 @@
-version: "2.1"
+version: "3.0"
 services:
     login_flask:
         build:
@@ -6,4 +6,5 @@ services:
             dockerfile: Dockerfile
         command: python -u login_flask.py
         env_file: .env
+        hostname: login
         restart: always

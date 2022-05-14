@@ -10,7 +10,11 @@ def get_travel():
         if request.method == "POST":
             for m in request.form:
                 travel_data.update({m : request.form[m]})
-            travel = get_travel_details(travel_data['travel_id'])
+            try:
+                travel_id = travel_data['travel_id']
+            except Exception as e:
+                return {'res': 'there is no travel_id in your body'}
+            travel = get_travel_details(travel_id=travel_id)
             if travel != None:
                 return travel
             else:
@@ -28,7 +32,11 @@ def get_all_travel():
         if request.method == "POST":
             for m in request.form:
                 travel_data.update({m : request.form[m]})
-            travel = get_all_travels(travel_data['username'])
+            try:
+                username = travel_data['username']
+            except Exception as e:
+                return {'res': 'there is no username in your body'}
+            travel = get_all_travels(username=username)
             if travel == None:
                 return travel
             else:
@@ -46,7 +54,11 @@ def c_t():
         if request.method == "POST":
             for m in request.form:
                 travel_data.update({m : request.form[m]})
-            travel = create_travel(travel_data['username'], travel_data['bike_id'], travel_data['x'], travel_data['y'])
+            try:
+                username, bike_id, x, y = travel_data['username'], travel_data['bike_id'],travel_data['x'], travel_data['y']
+            except Exception as e:
+                return {'res': 'there is no username or bike_id or x or y in your body'}
+            travel = create_travel(username, bike_id, x, y)
             if travel == None:
                 return travel
             else:
@@ -64,7 +76,11 @@ def e_t():
         if request.method == "POST":
             for m in request.form:
                 travel_data.update({m : request.form[m]})
-            travel = end_travel(travel_data['username'], travel_data['travel_id'], travel_data['x'], travel_data['y'])
+            try:
+                username, travel_id, x, y = travel_data['username'], travel_data['travel_id'],travel_data['x'], travel_data['y']
+            except Exception as e:
+                return {'res': 'there is no username or bike_id or x or y in your body'}
+            travel = end_travel(username, travel_id, x, y)
             return travel
     except Exception as e:
         return {
