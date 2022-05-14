@@ -6,4 +6,5 @@ services:
             dockerfile: Dockerfile
         command: python -u flsk.py
         env_file: .env
+        hostname: travel
         restart: always

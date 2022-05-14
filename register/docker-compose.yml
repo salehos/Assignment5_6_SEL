@@ -6,4 +6,5 @@ services:
             dockerfile: Dockerfile
         command: python -u reg_flask.py
         env_file: .env
+        hostname: register
         restart: always

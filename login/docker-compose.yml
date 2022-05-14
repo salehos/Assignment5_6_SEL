@@ -6,5 +6,5 @@ services:
             dockerfile: Dockerfile
         command: python -u login_flask.py
         env_file: .env
-        hostname: 
+        hostname: login
         restart: always
