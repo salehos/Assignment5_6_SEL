@@ -1,9 +1,9 @@
 version: "3.0"
 services:
-    register:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        command: python -u main_flask.py
-        env_file: .env
-        restart: always
+  register:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -u main_flask.py
+    env_file: .env
+    restart: always
