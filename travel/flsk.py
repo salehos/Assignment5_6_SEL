@@ -87,7 +87,7 @@ def e_t():
                                             travel_data['y']
             except Exception as e:
                 return {'res': 'there is no username or bike_id or x or y in your body'}
-            travel = end_travel(username, travel_id, x, y)
+            travel = ca(username, travel_id, x, y)
             return travel
     except Exception as e:
         return {
