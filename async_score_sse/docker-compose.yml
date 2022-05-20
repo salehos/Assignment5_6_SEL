@@ -1,0 +1,10 @@
+version: "2.1"
+services:
+  travel_flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -u flsk.py
+    env_file: .env
+    hostname: travel
+    restart: always
