@@ -1,10 +1,10 @@
 version: "3.0"
 services:
-    login_flask:
-        build:
-            context: .
-            dockerfile: Dockerfile
-        command: python -u login_flask.py
-        env_file: .env
-        hostname: login
-        restart: always
+  login_flask:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python -u login_flask.py
+    env_file: .env
+    hostname: login
+    restart: always
